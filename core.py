@@ -114,9 +114,9 @@ Remember that if both \" and \' are a part of what you're looking for, you can u
     save.close()
 
     if regex == False:
-        print(f'\nData " {to_find} " was replaced with " {to_rep} " {found} times.\nOutput saved in {path_save} folder')
+        print(f'\nData [" {to_find} "] was replaced with [" {to_rep} "] {found} times.\nOutput saved in {path_save} folder')
     else:
-        print(f'\nPattern " {pattern} " was matched and replaced with " {replace} " {amount} times.\nOutput saved in {path_save} folder')
+        print(f'\nPattern [" {pattern} "] was matched and replaced with [" {replace} "] {amount} times.\nOutput saved in {path_save} folder')
 
     again = input("\nType 1 to continue editing this file | Type 2 to continue with a new file | Leave blank to exit: ")
     if again == "1":
