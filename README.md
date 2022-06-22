@@ -15,5 +15,5 @@ Compile with auto-py-to-exe with --onedir yourself to avoid .exe being falsely t
 
 
 i know you can do almost the same in n++ but this features automatic saves after every operation, i guess
-also
+
 new to python, get off me
