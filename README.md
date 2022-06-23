@@ -14,6 +14,6 @@ Compile with auto-py-to-exe with --onedir yourself to avoid .exe being falsely t
 
 
 
-i know you can do almost the same in n++ but this features automatic saves after every operation, i guess
+I know you can do almost the same in n++ but my creation features automatic saves after every operation and goes through the most useful knowledge of RegEx that comes in handy for next-level editing of GTFO DataBlocks
 
-new to python, get off me
+im new to python, give me a break about my code not being perfect in every aspect
