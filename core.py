@@ -39,7 +39,7 @@ Remember that if both \" and \' are a part of what you're looking for, you can u
     
     return data, pattern, replace, amount
 
-def main(name, data):
+def main(name, name_backup, data):
     try:
         os.mkdir(os.path.dirname(__file__) + "\input")
     except FileExistsError:
@@ -58,6 +58,7 @@ def main(name, data):
                 file = open(path)
                 data = file.read()
                 file.close()
+                name_backup = name
                 break
             except FileNotFoundError:
                 print("File not found")
@@ -93,17 +94,28 @@ Remember that if both \" and \' are a part of what you're looking for, you can u
     if regex == True:
         data, pattern, replace, amount = run_regex(data)
 
-    new_name = input("\nShould the output file have a specific name or should it be generic? (leave blank for generic)")
+    new_name = input("\nType 1 to name the edited file the same as original | Type 2 to name it something else | Type 3 to use a generic name: ")
 
     now = datetime.now()
     now = now.strftime("%B_%d_%Y-%Hh%Mm%Ss")
-    if len(name) == 0:
-        name = os.path.splitext(name)
-        name = name[1]
-        if len(new_name) == 0:
+    while True:
+        if new_name == "1":
+            print("original")
+            new_name = name_backup
+            break
+        elif new_name == "2":
+            print("new")
+            new_name = input("\nInput a new name for the file, along with the extension: ")
+            break
+        elif new_name == "3":
+            print("generic")
+            name = os.path.splitext(name)
+            name = name[1]
             new_name = f"{now}{name}"
-    else:
-        new_name = f"{now}{name}"
+            break
+        else:
+            print("Invalid ID")
+            new_name = input("\nType 1 to name the edited file the same as original | Type 2 to name it something else | Type 3 to use a generic name: ")
 
     path_save = os.path.dirname(__file__) + f"\output\{now}"
     os.mkdir(path_save)
@@ -119,11 +131,12 @@ Remember that if both \" and \' are a part of what you're looking for, you can u
         print(f'\nPattern [" {pattern} "] was matched and replaced with [" {replace} "] {amount} times.\nOutput saved in {path_save} folder')
 
     again = input("\nType 1 to continue editing this file | Type 2 to continue with a new file | Leave blank to exit: ")
+    os.system("cls")
     if again == "1":
-        main(name, data)
+        main(name, name_backup, data)
     elif again == "2":
-        main("", "")
+        main("", "", "")
     else:
         exit()
 
-main("", "")
+main("", "", "")
