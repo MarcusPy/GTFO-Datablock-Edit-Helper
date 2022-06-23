@@ -3,7 +3,7 @@
 Features:
   - Normal replace
   - RegEx replace
-  - Saving output every operation
+  - Saving output every operation with adjustable naming
   - Convenient to use
 
 Work In Progress
